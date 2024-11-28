@@ -410,16 +410,29 @@ mjere. Ipak, može biti vrlo korisno i to pogotovo u slučaju kada želimo
 presresti korisničke greške kako bi mu javili jasnije poruke i
 spriječili \"rušenje\" programa. Na primjer, sljedeći program računa i
 ispisuje drugi korijen iz unesenog broja.
+### Primjer 5.18: Jednostavan program koji ne trpi krivi unos
+```python
+import math
+
+print("Program je započeo s radom.\n")
+broj = input("Unesi broj: ")
+broj = int(broj)
+drugi_korjen = math.sqrt(broj)
+print("Drugi korjen:", drugi_korjen)
+
+input("\nPritisni <enter> za kraj")
+```
 
 Kada pokrenemo program i upišemo broj \"2\", program će ispisati:
 
-``` pythonp
-[\[listing:pogreske_input_raw\]](#listing:pogreske_input_raw){reference-type="ref"
-reference="listing:pogreske_input_raw"} Program je započeo s radom.
+``` python
+Program je započeo s radom.
 
-Unesi broj: 9 Drugi korijen: 3.0
+Unesi broj: 9
+Drugi korijen: 3.0
 
-Pritisni \<enter\> za kraj
+Pritisni <enter> za kraj
+
 ```
 
 Prikazani program jednostavno računa drugi korijen iz korisničkog unosa.
@@ -427,15 +440,16 @@ Ali što ako korisnik unese nešto što se ne može interpretirati kao broj
 ili unese negativan broj? Evo kako bi izgledao loš unos kada bismo ovaj
 program pokrenuli u IDLE-u ili u komandnoj liniji.
 
-``` pythonp
-[\[listing:pogreske_input_raw\]](#listing:pogreske_input_raw){reference-type="ref"
-reference="listing:pogreske_input_raw"} Program je započeo s radom.
+``` python
+Program je započeo s radom.
 
 Unesi broj: neću
 
-Traceback (most recent call last): File \"C:/code/try_except_a.py\",
-line 7, in \<module\> broj = int(broj) ValueError: invalid literal for
-int() with base 10: 'neću'
+Traceback (most recent call last):
+  File "C:/code/try_except_a.py", line 7, in <module>
+    broj = int(broj)
+ValueError: invalid literal for int() with base 10: 'neću'
+
 ```
 
 U prikazanom slučaju vidimo \"sirovu\" grešku koju je javio Python.
@@ -453,44 +467,45 @@ prilikom pogreške, a povratna informacija korisniku nije više interna
 poruka od programskog jezika već nešto dizajnirano za ovu specifičnu
 namjenu.
 
-``` pythonp
-[\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
-reference="listing:pogreske_input_try"} Program je započeo s radom.
+``` python
+Program je započeo s radom.
 
-Unesi broj: neću Iz vrijednosti \"neću\" nije moguće izračunati drugi
-korijen.
+Unesi broj: neću
+Iz vrijednosti "neću" nije moguće izračunati drugi korijen.
 
-Pritisni \<enter\> za kraj
+Pritisni <enter> za kraj
 ```
 
 Slično se ponaša i kada unesemo negativan broj.
 
-``` pythonp
-[\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
-reference="listing:pogreske_input_try"} Program je započeo s radom.
+``` python
 
-Unesi broj: -1 Iz vrijednosti \"-1\" nije moguće izračunati drugi
-korijen.
+Program je započeo s radom.
 
-Pritisni \<enter\> za kraj
+Unesi broj: -1
+Iz vrijednosti "-1" nije moguće izračunati drugi korijen.
+
+Pritisni <enter> za kraj
 ```
 
 Ovaj primjer demonstrira korištenje naredbe `try` u praksi.
 Najjednostavnije korištenje ove naredbe može se sažeti na sljedeći
 način:
 
-``` pythonp
-Najjednostavniji oblik pokušajalisting:pokusaj_1 try: \<naredbe koje će
-se pokušati izvršiti\> except VrstaGreške: \<ako se dogodi bilo kakva
-greška u kôdu napisanom pod try, izvršiti će se kôd napisan ovdje\>
+``` python
+{listing:pokusaj_1}
+try:
+    <naredbe koje će se pokušati izvršiti>
+except VrstaGreške:
+    <ako se dogodi bilo kakva greška u kôdu napisanom pod try,
+    izvršit će se kôd napisan ovdje>
 ```
 
 `except` dio može i ne mora primiti neku vrstu pogreške (poput
 ValueError). Ako ne napišemo niti jednu vrstu pogreške tada će se kôd
 pod `except` izvršiti u slučaju bilo koje greške. Ako pak
 specificiramo neku vrstu greške, kao u primjeru
-[\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
-reference="listing:pogreske_input_try"}, tada će se kôd napisan pod
+5.19, tada će se kôd napisan pod
 `except` izvršiti samo u slučaju te vrste greške. Ne
 specificirati vrstu greške je dopušteno, ali se u načelu smatra lošom
 praksom jer na taj način naredba `try` može \"sakriti\" greške
@@ -506,15 +521,21 @@ dio kôda. Zadnja komponenta naredbe `try` je komponenta
 `finally`. Naredbe napisane u ovom dijelu će se uvijek izvršiti
 bez obzira da li je kôd pod `try` prouzročio grešku ili ne.
 
-``` pythonp
-Širi oblik pokušajalisting:pokusaj_2 try: \<naredbe koje će se pokušati
-izvršiti\> except VrstaGreške1: \<ako se dogodi greška vrste
-VrstaGreške1 u kôdu napisanom pod try, izvršiti će se kôd napisan
-ovdje\> \... except VrstaGreške2: \<ako se dogodi greška vrste
-VrstaGreške2 u kôdu napisanom pod try, izvršiti će se kôd napisan
-ovdje\> else: \<naredbe koje se izvršavaju samo ako je kôd napisan pod
-try uspješno izvršen\> finally: \<naredbe koje se uvijek izvršavaju, bez
-obzira da li je došlo do greške ili ne\>
+``` python
+{listing:pokusaj_2}
+try:
+    <naredbe koje će se pokušati izvršiti>
+except VrstaGreške1:
+    <ako se dogodi greška vrste VrstaGreške1 u kôdu napisanom pod try,
+    izvršit će se kôd napisan ovdje>
+...
+except VrstaGreške2:
+    <ako se dogodi greška vrste VrstaGreške2 u kôdu napisanom pod try,
+    izvršit će se kôd napisan ovdje>
+else:
+    <naredbe koje se izvršavaju samo ako je kôd napisan pod try uspješno izvršen>
+finally:
+    <naredbe koje se uvijek izvršavaju, bez obzira na to je li došlo do greške ili ne>
 ```
 
 Ipak, potpuno raspisanu `try` naredbu se rijetko vidi i dapače,
@@ -524,9 +545,7 @@ primjer. Također, neke situacije u kojima se tipično koristila
 komponenta `finally` je Python 3 riješio na bolji način. U
 daleko najčešćem slučaju, naredba `try` će koristiti samo jednu
 `except` komponentu i potencijalno `else` komponentu
-kao u primjeru
-[\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
-reference="listing:pogreske_input_try"}.
+kao u primjeru 5.19.
 
 Kao što vidimo, složena izjava `try` ima dosta naprednih
 mogućnosti. Ipak, ovaj mehanizam se koristi znatno manje nego
@@ -556,12 +575,19 @@ hipotetski ostatak programa očekivao da je n broj. Kako bismo ovo
 spojili s petljom `while` da korisniku ponavljamo pitanje sve
 dok ne unese cijeli broj?
 
-``` pythonp
-[\[listing:input_number_try_while\]](#listing:input_number_try_while){reference-type="ref"
-reference="listing:input_number_try_while"} Unesi broj: neću neću se ne
-može interpretirati kao cijeli broj, pokušaj ponovo. Unesi broj: 17ž 17ž
-se ne može interpretirati kao cijeli broj, pokušaj ponovo. Unesi broj:
-17
+``` python
+# ponavljaj sljedeći kôd sve dok ne zatražimo izlaz iz petlje
+while True:
+    n = input('Unesi broj: ')
+    try:
+        n = int(n)
+    except ValueError:
+        # ako je došlo do pogreške ValueError, ispisat će se poruka, a petlja while nastaviti
+        print(n, 'se ne može interpretirati kao cijeli broj, pokušaj ponovo.')
+    else:
+        # ako nije došlo do pogreške, prekini s while petljom jer je n sada cijeli broj
+        break
+
 ```
 
 Prikazani mehanizam možemo koristiti kada želimo osigurati unos cijelog
