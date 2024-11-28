@@ -152,14 +152,7 @@ else:
 
 ```
 
-Drugim riječima, svaki kondicional ima nužno jedan `if`{.python} slučaj,
-a može imati i bilo koji broj `elif`{.python} slučajeva i jedan
-`else`{.python} slučaj. Ovakav kondicional smo već vidjeli u primjeru
-[\[listing:kviz\]](#listing:kviz){reference-type="ref"
-reference="listing:kviz"}, a u idućim poglavljima ćemo za vježbu
-isprogramirati nešto konkretnije i iskoristiti kondicionale. Upoznajmo
-se ipak prije toga i s petljama i pokušajima kako bismo zaokružili
-koncept \"kontrole toka\".
+Drugim riječima, svaki kondicional ima nužno jedan `if` slučaj,a može imati i bilo koji broj `elif` slučajeva i jedan`else` slučaj. Ovakav kondicional smo već vidjeli u primjeru 1.11,a u idućim poglavljima ćemo za vježbuisprogramirati nešto konkretnije i iskoristiti kondicionale. Upoznajmo se ipak prije toga i s petljama i pokušajima kako bismo zaokružili koncept \"kontrole toka\".
 
 ## Petlje: ponavljanje naredbi
 
@@ -171,31 +164,39 @@ bibliografski zapis za svaku knjigu u nekoj bazi podataka ili čekaju
 korisnički unos i ponavljaju se sve dok korisnik ne zatraži izlaz iz
 programa.
 
-::: important
-Petlje Petlje ponavljaju naredbe. Iste naredbe treba ponavljati
-petljama, a ne dupliciranjem kôda.
-:::
+### Važno: Petlje
+Petlje ponavljaju naredbe. Iste naredbe treba ponavljati petljama, a ne dupliciranjem kôda.
+
 
 ### Za svaki
 
 Petlja koja se vrlo često koristi u programiranju, a u Pythonu je se
-najčešće koristi petlja `for`{.python}. Kao i kod kondicionala, ovo je
+najčešće koristi petlja `for`. Kao i kod kondicionala, ovo je
 složena izjava. Python koristi *for each* varijantu ove petlje koju
-skraćuje u naziv `for`{.python}. Drugim riječima, `for`{.python} u
+skraćuje u naziv `for`. Drugim riječima, `for` u
 Pythonu valja čitati \"za svaki\" i ova petlja ponavlja naredbe za svaki
 element u nekom skupu elemenata[^1]. Do sada jedina vrsta vrijednosti
 koju smo upoznali i koja se može raščlaniti na elemente je
-`str`{.python}, odnosno niz znakova pa ćemo upravo tu vrstu vrijednosti
-koristiti za primjere. Petlja `for`{.python} će postati korisnija kada
+`str`, odnosno niz znakova pa ćemo upravo tu vrstu vrijednosti
+koristiti za primjere. Petlja `for` će postati korisnija kada
 naučimo i strukture podataka o čemu je riječ u zasebnom poglavlju.
 
-Petljom `for`{.python} je dakle moguće provesti jednu ili više radnji za
+Petljom `for` je dakle moguće provesti jednu ili više radnji za
 svaki znak u nekom tekstu. Pogledajmo kako:
-
-::: pythonp
-[\[listing:for_basic\]](#listing:for_basic){reference-type="ref"
-reference="listing:for_basic"} t e k s t
-:::
+### Primjer 5.7: Osnovan oblik petlje "za svaki"
+``` python
+tekst = "tekst"
+for znak in tekst: # u pythonu, "for" čitaj "for each"
+    print(znak)
+```
+### Rezultat primjera 5.7
+```python
+t
+e
+k
+s
+t
+```
 
 Koncept \"skupa vrijednosti po kojem se može prebirati\" vrlo je važan
 pa ima i vlastitu terminologiju. Prebiranje po nekom skupu vrijednosti
