@@ -300,11 +300,13 @@ Unesi neki tekst: riba ribi grize rep
 Unesi slovo koje se traži: a
 Slovo "a" JE pronađeno!
 ```
-``` pythonp
-[\[listing:for_else\]](#listing:for_else){reference-type="ref"
-reference="listing:for_else"} kada slovo nije pronađeno Unesi neki
-tekst: riba ribi grize rep Unesi slovo koje se traži: x Slovo \"x\" NIJE
-pronađeno!
+### Rezultat primjera 5.14 kada slovo nije pronađeno
+``` python
+Unesi neki tekst: riba ribi grize rep
+Unesi slovo koje se traži: x
+Slovo "x" NIJE pronađeno!
+
+
 ```
 
 Za vježbu pokušajte izvesti prijašnji program bez da koristite
@@ -316,9 +318,14 @@ Jednostavna izjava `continue` čim se izvrši prelazi na idući
 korak petlje u kojoj se nalazi. Ova izjava se koristi kada je potrebno
 preskočiti korak u petlji.
 
-``` pythonp
-[\[listing:for_continue\]](#listing:for_continue){reference-type="ref"
-reference="listing:for_continue"} n k t k s t
+``` python
+tekst = "neki tekst"
+ignoriraj_znakove = " aeiou"  # razmak i samoglasnici
+
+for znak in tekst:
+    if znak in ignoriraj_znakove:  # ako se znak nalazi u ignoriraj_znakove
+        continue  # odmah prijeđi na iduću vrijednost za znak (preskoči ostatak ovog koraka)
+    print(znak)  # ispisuje znak samo ako nije preskočen
 ```
 
 Na prikazani način možemo izvršiti petlju koja se izvršava za određen
