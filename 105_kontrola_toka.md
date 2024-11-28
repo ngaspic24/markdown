@@ -248,13 +248,32 @@ tekst = "neki tekst"
          break # onda prekini for petlju, ostatak elemenata se neće procesirati
     print(znak)
 ```
+### Rezultat primjera 5.12:
+```python
+n
+e
+k
+i
+```
 
 Izjava \"prekini petlju\", odnosno `break`, je nužna u prije spomenutim beskonačnim `while` petljama. Pogledajmo praktičan primjer:
+### Primjer 5.13: Prekid izvršanja petlje „dok se uvjet ne ispuni”
+```python
+upute_za_unos = 'Unesi bilo što ("q" za izlaz): '
+
+while True: # ova petlja zauvijek ponavlja svoje korake
+    unos = input(upute_za_unos).strip().lower()
+    # ako korisnik zatraži izlaz, prekini petlju
+    if unos == "q":
+       print("Program završava s radom")
+       break
+    # sve ispod ove linije se izvršava samo ako korisnik nije tražio izlaz
+    print(unos)
+```
 
 Izvrši ovaj program. Kako se ponaša? Ne radi ništa korisno, ali je
 program koji se ponaša bliže računalnim aplikacijama. Naš \"prvi
-program\" odnosno primjer [\[kviz\]](#kviz){reference-type="ref"
-reference="kviz"} se mogao izvršiti samo jednom i onda je izašao.
+program\" odnosno primjer ?? se mogao izvršiti samo jednom i onda je izašao.
 Prikazani mehanizam omogućuje da se program nastavlja, odnosno ponavlja,
 sve dok korisnik ne odluči prestati raditi s njim.
 
@@ -263,14 +282,24 @@ Jedna zanimljivost kod prekida petlje u Pythonu je što petlja
 samo ako petlja nije prekinuta s naredbom `break`. Ova
 mogućnost je često korisna prilikom pretraživanja. Pogledajmo primjer
 koji provjerava da li se u nekom tekstu nalazi traženo slovo:
+### Primjer 5.14: for, break i else
+``` python
+text = input("Unesi neki tekst: ")
+search_for = input("Unesi slovo koje se traži: ")
 
-``` pythonp
-[\[listing:for_else\]](#listing:for_else){reference-type="ref"
-reference="listing:for_else"} kada je slovo pronađeno Unesi neki tekst:
-riba ribi grize rep Unesi slovo koje se traži: a Slovo \"a\" JE
-pronađeno!
+for letter in text:
+    if letter == search_for:
+        print('Slovo "{}" JE pronađeno!'.format(search_for))  
+        break # pronašli smo traženo pa možemo prekinuti petlju  
+else: # else će se izvršiti samo ako se već nije izvršila naredba break
+    print('Slovo "{}" NIJE pronađeno!'.format(search_for))
 ```
-
+### Rezultat primjera 5.14 kada je slovo pronađeno
+```python
+Unesi neki tekst: riba ribi grize rep
+Unesi slovo koje se traži: a
+Slovo "a" JE pronađeno!
+```
 ``` pythonp
 [\[listing:for_else\]](#listing:for_else){reference-type="ref"
 reference="listing:for_else"} kada slovo nije pronađeno Unesi neki
