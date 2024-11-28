@@ -1,22 +1,10 @@
 # Kontrola toka: Kondicionali, petlje i pokušaji {#kontrola_toka}
 
-U programiranju ne bismo daleko dogurali kada bismo jedino mogli po redu
-izvršavati jedinične radnje. S jedne strane moramo moći prema određenim
-uvjetima odabrati koje naredbe će se izvršiti, a koje ne. Ovo postižemo
-*kondicionalima*. S druge strane moramo moći ponavljati iste naredbe.
-Ovo postižemo *petljama*. U nastavku ćemo se upoznati s detaljima i
-riječ je o standardnim komponentama gotovo svih programskih jezika. U
-mnogim jezicima visoke razine postoji i treći koncept u kontroli toka, a
-to je *pokušaj* provođenja određenih naredbi s jasno definiranim kôdom
-koji će se izvršiti ako neka od naredbi ne uspije.
+U programiranju ne bismo daleko dogurali kada bismo jedino mogli po redu izvršavati jedinične radnje. S jedne strane moramo moći prema određenim uvjetima odabrati koje naredbe će se izvršiti, a koje ne. Ovo postižemo kondicionalima. S druge strane moramo moći ponavljati iste naredbe. Ovo postižemo petljama. U nastavku ćemo se upoznati s detaljima i riječ je o standardnim komponentama gotovo svih programskih jezika. U mnogim jezicima visoke razine postoji i treći koncept u kontroli toka, a to je pokušaj provođenja određenih naredbi s jasno definiranim kôdom koji će se izvršiti ako neka od naredbi ne uspije.
 
 ## Kondicionali: Ako \... onda \... {#kondicionali}
 
-Kondicionali služe *odabiru* kôda koji će se izvršiti. Kada su neke
-linije ovisne o kondicionalu, tada se neće izvršavati uvijek već samo
-kada su određeni uvjeti zadovoljeni. Time dobivamo mogućnosti poput:
-\"ako se neki izraz evaluira kao True, napravi nešto; a ako ne, napravi
-nešto posve drugo\". Na taj način možemo reći stvari poput:
+Kondicionali služe *odabiru* kôda koji će se izvršiti. Kada su neke linije ovisne o kondicionalu, tada se neće izvršavati uvijek već samo kada su određeni uvjeti zadovoljeni. Time dobivamo mogućnosti poput: \"ako se neki izraz evaluira kao True, napravi nešto; a ako ne, napravi nešto posve drugo\". Na taj način možemo reći stvari poput:
 
 -   Ako direktorij ne postoji, stvori ga.
 
@@ -156,33 +144,16 @@ Drugim riječima, svaki kondicional ima nužno jedan `if` slučaj,a može imati 
 
 ## Petlje: ponavljanje naredbi
 
-Petlje služe *ponavljanju* jedne ili više naredi. S petljama možemo dati
-instrukcije poput \"ponovi kôd za svaki element u popisu\" ili
-\"ponavljaj neki kôd sve dok uvjet nije zadovoljen\". Time možemo
-izraditi programe koji na primjer crtaju geometrijske oblike, izrađuju
-bibliografski zapis za svaku knjigu u nekoj bazi podataka ili čekaju
-korisnički unos i ponavljaju se sve dok korisnik ne zatraži izlaz iz
-programa.
-
+Petlje služe *ponavljanju* jedne ili više naredbi. S petljama možemo dati instrukcije poput "ponovi kôd za svaki element u popisu" ili "ponavljaj neki kôd sve dok uvjet nije zadovoljen". Time možemo izraditi programe koji, na primjer, crtaju geometrijske oblike, izrađuju bibliografski zapis za svaku knjigu u nekoj bazi podataka ili čekaju korisnički unos i ponavljaju se sve dok korisnik ne zatraži izlaz iz programa.
 ### Važno: Petlje
 Petlje ponavljaju naredbe. Iste naredbe treba ponavljati petljama, a ne dupliciranjem kôda.
 
 
 ### Za svaki
 
-Petlja koja se vrlo često koristi u programiranju, a u Pythonu je se
-najčešće koristi petlja `for`. Kao i kod kondicionala, ovo je
-složena izjava. Python koristi *for each* varijantu ove petlje koju
-skraćuje u naziv `for`. Drugim riječima, `for` u
-Pythonu valja čitati \"za svaki\" i ova petlja ponavlja naredbe za svaki
-element u nekom skupu elemenata[^1]. Do sada jedina vrsta vrijednosti
-koju smo upoznali i koja se može raščlaniti na elemente je
-`str`, odnosno niz znakova pa ćemo upravo tu vrstu vrijednosti
-koristiti za primjere. Petlja `for` će postati korisnija kada
-naučimo i strukture podataka o čemu je riječ u zasebnom poglavlju.
+Petlja koja se vrlo često koristi u programiranju, a u Pythonu se najčešće koristi petlja `for`. Kao i kod kondicionala, ovo je složena izjava. Python koristi *for each* varijantu ove petlje koju skraćuje u naziv `for`. Drugim riječima, `for` u Pythonu valja čitati "za svaki" i ova petlja ponavlja naredbe za svaki element u nekom skupu elemenata[^1]. Do sada jedina vrsta vrijednosti koju smo upoznali i koja se može raščlaniti na elemente je `str`, odnosno niz znakova, pa ćemo upravo tu vrstu vrijednosti koristiti za primjere. Petlja `for` će postati korisnija kada naučimo i strukture podataka o čemu je riječ u zasebnom poglavlju.
 
-Petljom `for` je dakle moguće provesti jednu ili više radnji za
-svaki znak u nekom tekstu. Pogledajmo kako:
+Petljom `for` je dakle moguće provesti jednu ili više radnji za svaki znak u nekom tekstu. Pogledajmo kako:
 ### Primjer 5.7: Osnovan oblik petlje "za svaki"
 ``` python
 tekst = "tekst"
@@ -198,130 +169,87 @@ s
 t
 ```
 
-Koncept \"skupa vrijednosti po kojem se može prebirati\" vrlo je važan
-pa ima i vlastitu terminologiju. Prebiranje po nekom skupu vrijednosti
-često nazivamo *iteracija* (eng. *iteration*), a vrsta vrijednosti po
-kojoj se može prebirati je *iterabilna* (eng. *iterable*) vrsta
-vrijednosti. Petlja `for`{.python} se \"izvrti određen broj krugova\" pa
-završi. Jedan \"krug\" nazivamo jednom iteracijom. Iteracija kao proces
-je, dakle proces prebiranja, a jedna iteracija je individualno
-izvršavanje naredbi koje se ponavljaju. Jednu iteraciju unutar petlje
-često nazivamo i korakom eng. *step* petlje.
+Koncept "skupa vrijednosti po kojem se može prebirati" vrlo je važan pa ima i vlastitu terminologiju. Prebiranje po nekom skupu vrijednosti često nazivamo *iteracija* (eng. *iteration*), a vrsta vrijednosti po kojoj se može prebirati je *iterabilna* (eng. *iterable*) vrsta vrijednosti. Petlja `for` se "izvrti određen broj krugova" pa završi. Jedan "krug" nazivamo jednom iteracijom. Iteracija kao proces je, dakle, proces prebiranja, a jedna iteracija je individualno izvršavanje naredbi koje se ponavljaju. Jednu iteraciju unutar petlje često nazivamo i korakom (eng. *step*) petlje.
 
-O finijim detaljima spomenutog će biti riječ kasnije kada dođemo do
-struktura podataka, ali terminologiju vrijedi znati i ranije jer se
-često koristi u Python dokumentaciji i literaturi kao i u samom Python
-jeziku prilikom, na primjer, javljanja pogrešaka.
+O finijim detaljima spomenutog će biti riječ kasnije kada dođemo do struktura podataka, ali terminologiju vrijedi znati i ranije jer se često koristi u Python dokumentaciji i literaturi, kao i u samom Python jeziku prilikom, na primjer, javljanja pogrešaka.
 
-::: important
-Iteracija Kada po nečemu iteriramo, tada po tome prebiremo jedan po
-jedan element. Kada je nešto iterabilno tada se po tome može prebirati.
-Ove riječi se često koriste u kôdu. Metode čiji naziv počinje s
-prefiksom \"iter\" vraćaju rezultatu po kojem se može iterirati. Kada
-Python javi grešku da nešto nije \"iterabilno\" tada pokušavamo
-prebirati po vrsti vrijednosti koja se ne može raščlaniti na sastavne
-elemente.
-:::
+### Važno: Iteracija
+Iteracija. Kada po nečemu iteriramo, tada po tome prebiremo jedan po jedan element. Kada je nešto iterabilno, tada se po tome može prebirati. Ove riječi se često koriste u kôdu. Metode čiji naziv počinje s prefiksom "iter" vraćaju rezultat po kojem se može iterirati. Kada Python javi grešku da nešto nije "iterabilno", tada pokušavamo prebirati po vrsti vrijednosti koja se ne može raščlaniti na sastavne elemente.
 
-U primjeru
-[\[listing:for_basic\]](#listing:for_basic){reference-type="ref"
-reference="listing:for_basic"} smo vidjeli kako možemo raditi sa svakim
-znakom u nekom tekstu odnosno sa svakim elementom u nekom skupu
-vrijednosti. U retku `for znak in tekst:`{.python}, `tekst`{.python} je
-skup vrijednosti po kojem se prebire, a `znak`{.python} je proizvoljan
-naziv varijable koji unutar petlje možemo koristiti kako bi se
-referirali na element u \"ovoj iteraciji\". U prvoj iteraciji, varijabla
-`znak`{.python} je jednaka vrijednosti `"t"`{.python}. U drugoj
-iteraciji, jednaka je vrijednosti `"e"`{.python} i tako dalje.
 
-Što ukoliko samo želimo ponoviti neku radnju određen broj puta nevezano
-za neki već postojeći skup vrijednosti poput vrijednosti
-`"tekst"`{.python}? Za ovo nam je korisna funkcija `range`{.python} koja
-stvara niz brojeva od nekog minimuma do nekog maksimuma. Ova funkcija je
-korisnija no što se na prvi pogled možda čini pa ćemo je često
-susretati. Na primjer, često se koristi u kombinaciji s petljom
-`for`{.python} kako bi odredila koliko puta će se naredbe unutar petlje
-ponoviti. Pogledajmo primjer:
+U primjeru 5.7 smo vidjeli kako možemo raditi sa svakim znakom u nekom tekstu odnosno sa svakim elementom u nekom skupu vrijednosti. U retku `for znak in tekst:`, `tekst` je skup vrijednosti po kojem se prebire, a `znak` je proizvoljan naziv varijable koji unutar petlje možemo koristiti kako bi se referirali na element u \"ovoj iteraciji\". U prvoj iteraciji, varijabla `znak` je jednaka vrijednosti `"t"`. U drugoj iteraciji, jednaka je vrijednosti `"e"` i tako dalje.
 
-::: pythonp
-[\[listing:for_range\]](#listing:for_range){reference-type="ref"
-reference="listing:for_range"} 0 tekst 1 tekst 2 tekst 3 tekst 4 tekst
-:::
+Što ukoliko samo želimo ponoviti neku radnju određen broj puta nevezano za neki već postojeći skup vrijednosti poput vrijednosti `"tekst"`? Za ovo nam je korisna funkcija `range` koja stvara niz brojeva od nekog minimuma do nekog maksimuma. Ova funkcija je korisnija no što se na prvi pogled možda čini pa ćemo je često susretati. Na primjer, često se koristi u kombinaciji s petljom `for` kako bi odredila koliko puta će se naredbe unutar petlje ponoviti. Pogledajmo primjer:
 
-Kao što vidimo, kada funkciji `range`{.python} pošaljemo jedan broj, ona
-stvara niz brojeva od nule do poslanog broja, ne uključujući i taj broj.
-Ovdje smo to iskoristili da bismo ponovili radnju 5 puta. Kako bi bilo
-jasnije što se zbiva, ispisali smo i vrijednost varijable `i`{.python}
-svaki put, ali varijablu `i`{.python} uopće ne moramo koristiti unutar
-petlje ako nam nije potrebna.
+``` python
+tekst = "tekst"
+for i in range(5): # ponovi sljedeće naredbe pet puta
+    print(i, tekst)
+```
+
+Kao što vidimo, kada funkciji `range` pošaljemo jedan broj, ona stvara niz brojeva od nule do poslanog broja, ne uključujući i taj broj. Ovdje smo to iskoristili da bismo ponovili radnju 5 puta. Kako bi bilo jasnije što se zbiva, ispisali smo i vrijednost varijable `i` svaki put, ali varijablu `i` uopće ne moramo koristiti unutar petlje ako nam nije potrebna.
 
 ### Dok se uvjet ne zadovolji
 
-Druga vrsta petlje u Pythonu je petlja `while`{.python} koja je također
-često vrlo korisna. Ova petlja ne prebire po nečemu već se izvršava sve
-dok neki uvjet nije zadovoljen. Njome možemo izvesti isto što i u
-prošlom primjeru:
+Druga vrsta petlje u Pythonu je petlja `while` koja je također često vrlo korisna. Ova petlja ne prebire po nečemu već se izvršava sve dok neki uvjet nije zadovoljen. Njome možemo izvesti isto što i u prošlom primjeru:
+### Primjer 5.9:  Osnovan oblik petlje „dok se uvjet ne zadovolji”
 
-::: pythonp
-[\[listing:while_basic\]](#listing:while_basic){reference-type="ref"
-reference="listing:while_basic"} 0 tekst 1 tekst 2 tekst 3 tekst 4 tekst
-:::
+``` python
+tekst = "tekst"
+i = 0
+while i < 5:
+    print(i, tekst)
+    i += 1
+```
+### Rezultat primjera 5.9
+```python
+0 tekst
+1 tekst
+2 tekst
+3 tekst
+4 tekst
+```
 
-Primjer [\[listing:for_basic\]](#listing:for_basic){reference-type="ref"
-reference="listing:for_basic"} također možemo postići ovom petljom, ali
-nešto zaobilaznijim putem:
+Primjer 5.7 također možemo postići ovom petljom, ali nešto zaobilaznijim putem:
 
-::: pythonp
-[\[listing:while_index\]](#listing:while_index){reference-type="ref"
-reference="listing:while_index"} t e k s t
-:::
+### Primjer 5.10: Prebiranje po nizu vrijednosti s petljom while
+``` python
+tekst = "tekst"
+ i = 0
+ while i < len(tekst):
+       print(tekst[i])
+       i += 1
+```
+### Rezultat primjera 5.10:
+```python
+t
+e
+k
+s
+t
+```
 
-U prikazanim primjerima svejedno je da li koristimo petlju
-`for`{.python} ili petlju `while`{.python}, ali petlja `while`{.python}
-zahtijeva nešto više komponenata. Također, ova petlja krije jednu
-opasnost koja se u `for`{.python} petlji može teško dogoditi: lako je
-moguće da se `while`{.python} petlja krene izvršavati zauvijek! Idući
-primjer prikazuje ovakvu grešku i ako ga pokrenete pripremite se da će
-te morati nasilno ugasiti Python, jer se ovaj program neće nikad
-završiti.
+U prikazanim primjerima svejedno je da li koristimo petlju `for` ili petlju `while`, ali petlja `while` zahtijeva nešto više komponenata. Također, ova petlja krije jednu opasnost koja se u `for` petlji može teško dogoditi: lako je moguće da se `while` petlja krene izvršavati zauvijek! Idući primjer prikazuje ovakvu grešku i ako ga pokrenete pripremite se da će te morati nasilno ugasiti Python, jer se ovaj program neće nikad završiti.
 
-U prošlom primjeru je greškom ispuštena naredba `i += 1`{.python} pa se
-uvjet za završetak ponavljanja kôda nikad neće zadovoljiti. Naredba
-`print("nema kraja")`{.python} će se stoga pokušati izvrtiti beskonačan
-broj puta. Izvršavanje ovog programa će završiti tek kad ga nasilno
-ugasimo tako što smo prekinuli sistemski proces ili ugasili računalo.
+U prošlom primjeru je greškom ispuštena naredba `i += 1`, pa se uvjet za završetak ponavljanja kôda nikad neće zadovoljiti. Naredba `print("nema kraja")` će se stoga pokušati izvrtiti beskonačan broj puta. Izvršavanje ovog programa će završiti tek kad ga nasilno ugasimo tako što smo prekinuli sistemski proces ili ugasili računalo.
 
-Prikazana beskonačna petlja je rezultat greške i njezino ponašanje je
-nepoželjno. Ipak, postoje situacije u kojem su beskonačne petlje zapravo
-vrlo korisne i puno ih je lakše postići petljom `while`{.python} no
-petljom `for`{.python}. Tipičan primjer su aplikacije koje kad se
-pokrenu čekaju korisničke naredbe koje zatim izvršavaju na zahtjev.
-Navedeno stoji za gotovo sve aplikacije s grafičkim sučeljem. U ovom
-slučaju, petlja se nikad neće sama po sebi završiti, ali postoji
-mehanizam koji ju u posebnim slučajevima može prekinuti. Pogledajmo prvo
-kako funkcioniraju mehanizmi za prekidanje petlje, a konkretni primjeri
-korištenja `while`{.python} petlji u ovom smislu su preneseni kasnije u
-tekstu.
+Prikazana beskonačna petlja je rezultat greške i njezino ponašanje je nepoželjno. Ipak, postoje situacije u kojima su beskonačne petlje zapravo vrlo korisne i puno ih je lakše postići petljom `while` nego petljom `for`. Tipičan primjer su aplikacije koje, kad se pokrenu, čekaju korisničke naredbe koje zatim izvršavaju na zahtjev. Navedeno stoji za gotovo sve aplikacije s grafičkim sučeljem. U ovom slučaju, petlja se nikad neće sama po sebi završiti, ali postoji mehanizam koji ju u posebnim slučajevima može prekinuti. Pogledajmo prvo kako funkcioniraju mehanizmi za prekidanje petlje, a konkretni primjeri korištenja `while` petlji u ovom smislu su preneseni kasnije u tekstu.
 
-Postoje dvije jednostavne Python izjave koje služe upravljanju petljama
-i koje se smiju koristiti samo unutar petlji. Te izjave su
-`break`{.python}, koja služi prekidanju petlje i `continue`{.python},
-koja služi prelasku na idući korak petlje.
+Postoje dvije jednostavne Python izjave koje služe upravljanju petljama i koje se smiju koristiti samo unutar petlji. Te izjave su `break`, koja služi prekidanju petlje, i `continue`, koja služi prelasku na idući korak petlje.
 
 ### Prekini petlju
 
-Jednostavna izjava `break`{.python} čim se izvrši završava petlju u
-kojoj se nalazi. Ova izjava se koristi kada je potrebno izaći iz petlje
-prije no što bi ona završila sama po sebi.
+Jednostavna izjava `break` čim se izvrši završava petlju u kojoj se nalazi. Ova izjava se koristi kada je potrebno izaći iz petlje prije no što bi ona završila sama po sebi.
+### Primjer 5.12: Prekid izvršanja petlje „za svaki”
+``` python
+tekst = "neki tekst"
+ for znak in tekst:
+     if znak == " ": # ako je "znak" razmak
+         break # onda prekini for petlju, ostatak elemenata se neće procesirati
+    print(znak)
+```
 
-::: pythonp
-[\[listing:for_break\]](#listing:for_break){reference-type="ref"
-reference="listing:for_break"} n e k i
-:::
-
-Izjava \"prekini petlju\", odnosno `break`{.python}, je nužna u prije
-spomenutim beskonačnim `while`{.python} petljama. Pogledajmo praktičan
-primjer:
+Izjava \"prekini petlju\", odnosno `break`, je nužna u prije spomenutim beskonačnim `while` petljama. Pogledajmo praktičan primjer:
 
 Izvrši ovaj program. Kako se ponaša? Ne radi ništa korisno, ali je
 program koji se ponaša bliže računalnim aplikacijama. Naš \"prvi
@@ -331,38 +259,38 @@ Prikazani mehanizam omogućuje da se program nastavlja, odnosno ponavlja,
 sve dok korisnik ne odluči prestati raditi s njim.
 
 Jedna zanimljivost kod prekida petlje u Pythonu je što petlja
-`for`{.python} podržava i komponentu `else`{.python} koja se izvršava
-samo ako petlja nije prekinuta s naredbom `break`{.python}. Ova
+`for` podržava i komponentu `else` koja se izvršava
+samo ako petlja nije prekinuta s naredbom `break`. Ova
 mogućnost je često korisna prilikom pretraživanja. Pogledajmo primjer
 koji provjerava da li se u nekom tekstu nalazi traženo slovo:
 
-::: pythonp
+``` pythonp
 [\[listing:for_else\]](#listing:for_else){reference-type="ref"
 reference="listing:for_else"} kada je slovo pronađeno Unesi neki tekst:
 riba ribi grize rep Unesi slovo koje se traži: a Slovo \"a\" JE
 pronađeno!
-:::
+```
 
-::: pythonp
+``` pythonp
 [\[listing:for_else\]](#listing:for_else){reference-type="ref"
 reference="listing:for_else"} kada slovo nije pronađeno Unesi neki
 tekst: riba ribi grize rep Unesi slovo koje se traži: x Slovo \"x\" NIJE
 pronađeno!
-:::
+```
 
 Za vježbu pokušajte izvesti prijašnji program bez da koristite
-komponentu `else`{.python} petlje `for`{.python}!
+komponentu `else` petlje `for`!
 
 ### Preskoči korak u petlji
 
-Jednostavna izjava `continue`{.python} čim se izvrši prelazi na idući
+Jednostavna izjava `continue` čim se izvrši prelazi na idući
 korak petlje u kojoj se nalazi. Ova izjava se koristi kada je potrebno
 preskočiti korak u petlji.
 
-::: pythonp
+``` pythonp
 [\[listing:for_continue\]](#listing:for_continue){reference-type="ref"
 reference="listing:for_continue"} n k t k s t
-:::
+```
 
 Na prikazani način možemo izvršiti petlju koja se izvršava za određen
 broj slučajeva, ali se preskaču slučajevi koji (ne) zadovoljavaju
@@ -380,13 +308,13 @@ je i gdje je pošlo po krivu. Python omogućava i presretanje pogrešaka
 pobliže Python pogreške, a zatim i kako ih presretati.
 
 Što se dogodi kad Python prilikom izvršavanja kôda naiđe na pogrešku?
-Recimo da smo pokušali izvršiti izraz `n + 1`{.python}, a varijabli
-`n`{.python} nije pridružena vrijednost.
+Recimo da smo pokušali izvršiti izraz `n + 1`, a varijabli
+`n` nije pridružena vrijednost.
 
-Usredotočimo se na zadnju liniju. Python javlja `NameError`{.python} s
-`name 'n' is not defined`{.python} kao detaljima pogreške. U trenutku
+Usredotočimo se na zadnju liniju. Python javlja `NameError` s
+`name 'n' is not defined` kao detaljima pogreške. U trenutku
 kad je naišao na pogrešku Python je stvorio objekt vrste
-`Exception`{.python} (u ovom slučaju `NameError`{.python}) s nekom
+`Exception` (u ovom slučaju `NameError`) s nekom
 porukom. Zatim je prijavio grešku opisanu tim objektom korisniku te
 prekinuo izvršavanje. Sve linije prije zadnje su ispis koda u kojemu se
 dogodila greška. Ovaj dio može biti vrlo dugačak, ali važno je zapamtiti
@@ -412,17 +340,17 @@ Najčešće pogreške koje Python javlja su:
     slično
 
 -   **NameError** - javlja se kada koristimo neki naziv čija vrijednost
-    nije poznata; na primjer pokušavamo koristiti varijablu `x`{.python}
+    nije poznata; na primjer pokušavamo koristiti varijablu `x`
     prije no što smo toj varijabli pridružili neku vrijednost
 
 -   **TypeError** - javlja se kada se operacija ili funkcija pokuša
-    provesti s krivom vrstom vrijednosti; na primjer `"1" + 1`{.python}
-    ili `round("tekst")`{.python}
+    provesti s krivom vrstom vrijednosti; na primjer `"1" + 1`
+    ili `round("tekst")`
 
 -   **ValueError** - javlja se kada se operacija ili funkcija pokuša
     provesti s točnom vrstom vrijednosti, ali s vrijednosti s kojom nije
     moguće provesti tu operaciju ili funkciju; na primjer
-    `math.sqrt(-1)`{.python}
+    `math.sqrt(-1)`
 
 -   **ImportError** - javlja se kada korisnik pokuša uvesti modul koji
     ne postoji (ili ga Python ne zna pronaći, što dođe na isto); na
@@ -449,21 +377,21 @@ ispisuje drugi korijen iz unesenog broja.
 
 Kada pokrenemo program i upišemo broj \"2\", program će ispisati:
 
-::: pythonp
+``` pythonp
 [\[listing:pogreske_input_raw\]](#listing:pogreske_input_raw){reference-type="ref"
 reference="listing:pogreske_input_raw"} Program je započeo s radom.
 
 Unesi broj: 9 Drugi korijen: 3.0
 
 Pritisni \<enter\> za kraj
-:::
+```
 
 Prikazani program jednostavno računa drugi korijen iz korisničkog unosa.
 Ali što ako korisnik unese nešto što se ne može interpretirati kao broj
 ili unese negativan broj? Evo kako bi izgledao loš unos kada bismo ovaj
 program pokrenuli u IDLE-u ili u komandnoj liniji.
 
-::: pythonp
+``` pythonp
 [\[listing:pogreske_input_raw\]](#listing:pogreske_input_raw){reference-type="ref"
 reference="listing:pogreske_input_raw"} Program je započeo s radom.
 
@@ -472,7 +400,7 @@ Unesi broj: neću
 Traceback (most recent call last): File \"C:/code/try_except_a.py\",
 line 7, in \<module\> broj = int(broj) ValueError: invalid literal for
 int() with base 10: 'neću'
-:::
+```
 
 U prikazanom slučaju vidimo \"sirovu\" grešku koju je javio Python.
 Međutim, da smo ovaj program pokrenuli duplim klikom, program bi
@@ -482,14 +410,14 @@ slučaju, što želimo postići je: 1) da korisnik uvijek vidi grešku koja
 se dogodila i 2) da se korisniku ne prikazuje sirova greška kako ju
 javlja programski jezik, već neka poruka specifično namijenjena za naš
 program. Kako bismo postigli ovo, Python nam omogućuje korištenje riječi
-`try`{.python}. Pogledajmo primjer:
+`try`. Pogledajmo primjer:
 
 Kada izvršimo program vidjet ćemo da se on ne gasi \"sam od sebe\"
 prilikom pogreške, a povratna informacija korisniku nije više interna
 poruka od programskog jezika već nešto dizajnirano za ovu specifičnu
 namjenu.
 
-::: pythonp
+``` pythonp
 [\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
 reference="listing:pogreske_input_try"} Program je započeo s radom.
 
@@ -497,11 +425,11 @@ Unesi broj: neću Iz vrijednosti \"neću\" nije moguće izračunati drugi
 korijen.
 
 Pritisni \<enter\> za kraj
-:::
+```
 
 Slično se ponaša i kada unesemo negativan broj.
 
-::: pythonp
+``` pythonp
 [\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
 reference="listing:pogreske_input_try"} Program je započeo s radom.
 
@@ -509,40 +437,40 @@ Unesi broj: -1 Iz vrijednosti \"-1\" nije moguće izračunati drugi
 korijen.
 
 Pritisni \<enter\> za kraj
-:::
+```
 
-Ovaj primjer demonstrira korištenje naredbe `try`{.python} u praksi.
+Ovaj primjer demonstrira korištenje naredbe `try` u praksi.
 Najjednostavnije korištenje ove naredbe može se sažeti na sljedeći
 način:
 
-::: pythonp
+``` pythonp
 Najjednostavniji oblik pokušajalisting:pokusaj_1 try: \<naredbe koje će
 se pokušati izvršiti\> except VrstaGreške: \<ako se dogodi bilo kakva
 greška u kôdu napisanom pod try, izvršiti će se kôd napisan ovdje\>
-:::
+```
 
-`except`{.python} dio može i ne mora primiti neku vrstu pogreške (poput
+`except` dio može i ne mora primiti neku vrstu pogreške (poput
 ValueError). Ako ne napišemo niti jednu vrstu pogreške tada će se kôd
-pod `except`{.python} izvršiti u slučaju bilo koje greške. Ako pak
+pod `except` izvršiti u slučaju bilo koje greške. Ako pak
 specificiramo neku vrstu greške, kao u primjeru
 [\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
 reference="listing:pogreske_input_try"}, tada će se kôd napisan pod
-`except`{.python} izvršiti samo u slučaju te vrste greške. Ne
+`except` izvršiti samo u slučaju te vrste greške. Ne
 specificirati vrstu greške je dopušteno, ali se u načelu smatra lošom
-praksom jer na taj način naredba `try`{.python} može \"sakriti\" greške
+praksom jer na taj način naredba `try` može \"sakriti\" greške
 za koje nismo pretpostavili da se mogu dogoditi što znatno otežava
-traženje problema u programima. Zato je dijelu `except`{.python} dobro
+traženje problema u programima. Zato je dijelu `except` dobro
 specificirati točno koje vrste pogreške hvata. Ako želimo hvatati više
-vrsta pogrešaka, možemo ponoviti `except`{.python} komponentu naredbe
-`try`{.python}. Kao što smo vidjeli, ovoj naredbi je moguće dodati i
-`else`{.python} komponentu koja služi odvajanju kôda koji će se izvršiti
-samo ako su naredbe u `try`{.python} komponenti uspješno provedene,
-odnosno suprotan slučaj od onog u kojem se izvršava `except`{.python}
-dio kôda. Zadnja komponenta naredbe `try`{.python} je komponenta
-`finally`{.python}. Naredbe napisane u ovom dijelu će se uvijek izvršiti
-bez obzira da li je kôd pod `try`{.python} prouzročio grešku ili ne.
+vrsta pogrešaka, možemo ponoviti `except` komponentu naredbe
+`try`. Kao što smo vidjeli, ovoj naredbi je moguće dodati i
+`else` komponentu koja služi odvajanju kôda koji će se izvršiti
+samo ako su naredbe u `try` komponenti uspješno provedene,
+odnosno suprotan slučaj od onog u kojem se izvršava `except`
+dio kôda. Zadnja komponenta naredbe `try` je komponenta
+`finally`. Naredbe napisane u ovom dijelu će se uvijek izvršiti
+bez obzira da li je kôd pod `try` prouzročio grešku ili ne.
 
-::: pythonp
+``` pythonp
 Širi oblik pokušajalisting:pokusaj_2 try: \<naredbe koje će se pokušati
 izvršiti\> except VrstaGreške1: \<ako se dogodi greška vrste
 VrstaGreške1 u kôdu napisanom pod try, izvršiti će se kôd napisan
@@ -551,24 +479,24 @@ VrstaGreške2 u kôdu napisanom pod try, izvršiti će se kôd napisan
 ovdje\> else: \<naredbe koje se izvršavaju samo ako je kôd napisan pod
 try uspješno izvršen\> finally: \<naredbe koje se uvijek izvršavaju, bez
 obzira da li je došlo do greške ili ne\>
-:::
+```
 
-Ipak, potpuno raspisanu `try`{.python} naredbu se rijetko vidi i dapače,
+Ipak, potpuno raspisanu `try` naredbu se rijetko vidi i dapače,
 primjer koji prikazuje sve ove komponente u praksi bi bio ili vrlo
 specijaliziran ili umjetno osmišljen samo kako bi postojao takav
 primjer. Također, neke situacije u kojima se tipično koristila
-komponenta `finally`{.python} je Python 3 riješio na bolji način. U
-daleko najčešćem slučaju, naredba `try`{.python} će koristiti samo jednu
-`except`{.python} komponentu i potencijalno `else`{.python} komponentu
+komponenta `finally` je Python 3 riješio na bolji način. U
+daleko najčešćem slučaju, naredba `try` će koristiti samo jednu
+`except` komponentu i potencijalno `else` komponentu
 kao u primjeru
 [\[listing:pogreske_input_try\]](#listing:pogreske_input_try){reference-type="ref"
 reference="listing:pogreske_input_try"}.
 
-Kao što vidimo, složena izjava `try`{.python} ima dosta naprednih
+Kao što vidimo, složena izjava `try` ima dosta naprednih
 mogućnosti. Ipak, ovaj mehanizam se koristi znatno manje nego
 kondicionali i petlje. Dapače, ukoliko je nešto moguće izvesti s izjavom
-`try`{.python}, ali i s kondicionalima i/ili petljama, kao općenito
-pravilo se izbjegava `try`{.python} jer za razliku od kondicionala i
+`try`, ali i s kondicionalima i/ili petljama, kao općenito
+pravilo se izbjegava `try` jer za razliku od kondicionala i
 petlja ima više sitnica na koje treba paziti i detalja koji mogu poći po
 krivu.
 
@@ -576,37 +504,37 @@ krivu.
 
 Proučimo sljedeći jednostavan primjer:
 
-Iako korisniku javljamo `'Unesi broj: '`{.python}, ništa ga ne sprječava
+Iako korisniku javljamo `'Unesi broj: '`, ništa ga ne sprječava
 da unese tekst ili bilo što drugo što se ne može interpretirati kao
 broj. Česta greška na hrvatskim tipkovnicama je, na primjer, unos \"7ž\"
 gdje je slovo \"ž\" slučajno utipkano radi smještaja uz tipku enter, a
 na nekim tipkovnicama čak i zauzima dio te tipke. Ako se ovo dogodi,
-program će se srušiti jer će redak `n = int(n)`{.python} javiti grešku i
+program će se srušiti jer će redak `n = int(n)` javiti grešku i
 komandna linija će se odmah ugasiti. Kako bismo spriječili takvo
 ponašanje i korisniku javili grešku možemo koristiti izjavu
-`try`{.python}.
+`try`.
 
 Sada smo presreli pogrešku i prikazali korisniku odgovarajuću poruku.
 Ipak, nakon pogreške moramo prekinuti izvršavati program jer bi
 hipotetski ostatak programa očekivao da je n broj. Kako bismo ovo
-spojili s petljom `while`{.python} da korisniku ponavljamo pitanje sve
+spojili s petljom `while` da korisniku ponavljamo pitanje sve
 dok ne unese cijeli broj?
 
-::: pythonp
+``` pythonp
 [\[listing:input_number_try_while\]](#listing:input_number_try_while){reference-type="ref"
 reference="listing:input_number_try_while"} Unesi broj: neću neću se ne
 može interpretirati kao cijeli broj, pokušaj ponovo. Unesi broj: 17ž 17ž
 se ne može interpretirati kao cijeli broj, pokušaj ponovo. Unesi broj:
 17
-:::
+```
 
 Prikazani mehanizam možemo koristiti kada želimo osigurati unos cijelog
 broja i ponavljati pitanje korisniku sve dok ne unese validan broj. Sada
 znamo dovoljno o mehanizmima kontrole toka kako bismo ih iskoristili u
 konkretnijim primjerima.
 
-[^1]: U mnogim drugim jezicima se petlja `for`{.python} ponaša
+[^1]: U mnogim drugim jezicima se petlja `for` ponaša
     drugačije, a petlja o kojoj je sada riječ se naziva
-    `foreach`{.python}, `for_each`{.python} ili što slično.
+    `foreach`, `for_each` ili što slično.
 
 [^2]: Rječnici su prikazani kasnije u tekstu.
